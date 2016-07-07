@@ -1,0 +1,13 @@
+
+<% @articles.each do |article| %> 
+
+<div class="article-show-index">
+	<h3><%=article.title %></h3>
+	<p><%=article.body %></p>
+	<button ><%= link_to "Mostrar", article_path(article) %>
+	</button>
+</div>
+
+<%end%>
+
+<%= link_to "Crear articulo", new_article_path(@articles), :class => "new-article-button-index" %>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tester</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper">
+    <header id="header" class="clearfix" role="banner">
+    
+        <hgroup>
+            <h1 id="site-title"><a href="index.html">A HTML5 Theme</a></h1>
+            <h2 id="site-description">This is an awesome description of the site!</h2>
+        </hgroup>
+    
+    </header> <!-- #header -->
+
+<div id="main" class="clearfix">
+
+	<!-- Navigation -->
+    <nav id="menu" class="clearfix" role="navigation">
+        <ul> 
+            <li class="current">
+            	<%= link_to "Inicio", root_path %>
+            </li>
+            <li>
+                <%= link_to "Articulos", articles_path %>
+                <ul>
+                    <li><a href="#">Subpage</a></li>
+                    <li><a href="#">Subpage 2</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <%if user_signed_in? %>
+        <%= link_to "Cerrar Sesion de  #{current_user.email}", destroy_user_session_path, method: :delete %>
+        <% end -%>
+
+    </nav> <!-- #nav -->
+ 
+
+<%= yield %>
+</div>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+</body>
+</html>
+
+
+
