@@ -1,8 +1,18 @@
 
 <h3><%= @article.title %></h3>
 <p><%= @article.body %></p>
+
 <p>Numero de visitas: <%= @article.visits_count %></p>
-<p><%= link_to "Eliminar", @article, method: :delete %></p>
+
 <% unless @article.user.nil? %>
-<p>Escrito por: <%=@article.user.email %></p>
+	<p>Escrito por: <%=@article.user.email %></p>
 <%end -%>
+
+<h4>Comentarios</h4>
+
+<% @article.comments.each_with_index do |comment, i| %>
+	<p> #<%=i+1 %> => <%= comment.body %> </p>
+	<hr>
+<% end -%>
+<%= render 'comments/form'  %>
+<p><%= link_to "Eliminar", @article, method: :delete %></p>
