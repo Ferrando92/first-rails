@@ -1,3 +1,4 @@
 == README
-All the info stepp by step is at the wiki https://github.com/Ferrando92/first-rails/wiki
+All the info stepp by step is at the wiki 
+https://github.com/Ferrando92/first-rails/wiki/First-steps
 
